@@ -27,11 +27,11 @@ export class GroupAction {
      * @param group_id {number} 群id
      * @param messages {V11.MessageNode[]} 转发消息内容
      */
-    async sendGroupForwardMsg(this: V11, group_id: number, messages: V11.MessageNode[]) {
+    async sendGroupForwardMsg(this: V11, group_id: number, messages: V11.Sendable[]) {
         const gid = this.getStrByInt("group_id", group_id);
         return this.adapter.call(this.oneBot.uin, "V11", "sendGroupForwardMessage", [
             gid,
-            messages,
+            messages.map(m => (m as V11.Segment).data),
         ]);
     }
     /**

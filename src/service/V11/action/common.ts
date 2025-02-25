@@ -108,9 +108,11 @@ export class CommonAction {
     async submitSmsCode(this: V11, code: string) {
         return this.adapter.call(this.oneBot.uin, "V11", "callLogin", ["submitSmsCode", code]);
     }
+
     callApi(this: V11, name: string, args: any[]) {
         return this.adapter.call(this.oneBot.uin, "V11", "callApi", [name, args]);
     }
+
     login(this: V11, password?: string) {
         return this.adapter.call(this.oneBot.uin, "V11", "callLogin", ["login", password]);
     }
@@ -118,6 +120,7 @@ export class CommonAction {
     logout(this: V11, keepalive?: boolean) {
         return this.adapter.call(this.oneBot.uin, "V11", "logout", [keepalive]);
     }
+
     /**
      * 上传富媒体
      * @param this

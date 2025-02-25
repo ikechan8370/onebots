@@ -6,7 +6,7 @@ import { title } from "process";
 
 /** 发送音乐分享(允许自定义参数) */
 export async function shareMusic(this: Contactable, music: MusicElem) {
-    const body = await buildMusic((this.gid || this.uid) as number, this.dm ? 0 : 1, music);
+    const body = await buildMusic((this.gid) as number, this.dm ? 0 : 1, music);
     await this.c.sendOidb("OidbSvc.0xb77_9", pb.encode(body));
 }
 

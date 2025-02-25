@@ -236,8 +236,8 @@ export default class IcqqAdapter extends Adapter<"icqq", Sendable> {
                     return {
                         type: "node",
                         data: {
-                            user_id: message.uin,
-                            nickname: message.name,
+                            user_id: message.user_id,
+                            nickname: message.nickname,
                             message: message.content,
                         },
                     };
@@ -299,7 +299,7 @@ export default class IcqqAdapter extends Adapter<"icqq", Sendable> {
                         type,
                         user_id: data.user_id || data.uin,
                         nickname: data.nickname || data.name,
-                        message: this.fromSegment(onebot, version, data.content)
+                        message: this.fromSegment(onebot, version, data.message)
                     };
                 }
                 return { type, ...data };

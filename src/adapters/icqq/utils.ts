@@ -20,12 +20,12 @@ export async function processMessages(
                 result.push({
                     type,
                     ...data,
-                    user_id: data.user_id,
+                    user_id: parseInt(data.user_id),
                     message: await processMessages.call(
                         this,
                         uin,
                         data.user_id,
-                        "private",
+                        target_type,
                         data.message || [],
                     ),
                 });
